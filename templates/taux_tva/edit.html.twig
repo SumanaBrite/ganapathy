@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TauxTva{% endblock %}
+
+{% block body %}
+    <h1>Edit TauxTva</h1>
+
+    {{ include('taux_tva/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('taux_tva_index') }}">back to list</a>
+
+    {{ include('taux_tva/_delete_form.html.twig') }}
+{% endblock %}

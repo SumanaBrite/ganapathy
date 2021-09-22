@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TauxTva{% endblock %}
+
+{% block body %}
+    <h1>Create new TauxTva</h1>
+
+    {{ include('taux_tva/_form.html.twig') }}
+
+    <a href="{{ path('taux_tva_index') }}">back to list</a>
+{% endblock %}

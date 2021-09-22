@@ -1,0 +1,7 @@
+{% include "base.html.twig" %}
+{% block title %}Page non trouvée{% endblock %}
+{% block body %}
+<h2>Page non trouvée!! </h2>
+<img src="/public/images/uploads/page_404.jpg" alt="Page non trouvée">
+<p><a href="{{ path {{'home'}} }}"></a>Cliquez ici pour aller à l'acceuil</p>
+{% endblock %}

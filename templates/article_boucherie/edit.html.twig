@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ArticleBoucherie{% endblock %}
+
+{% block body %}
+    <h1>Edit ArticleBoucherie</h1>
+
+    {{ include('article_boucherie/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('article_boucherie_index') }}">back to list</a>
+
+    {{ include('article_boucherie/_delete_form.html.twig') }}
+{% endblock %}

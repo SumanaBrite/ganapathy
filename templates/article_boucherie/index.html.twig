@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ArticleBoucherie index{% endblock %}
+
+{% block body %}
+    <h1>ArticleBoucherie index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>PrixUnitaire</th>
+                <th>Path</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article_boucherie in article_boucheries %}
+            <tr>
+                <td>{{ article_boucherie.id }}</td>
+                <td>{{ article_boucherie.nom }}</td>
+                <td>{{ article_boucherie.description }}</td>
+                <td>{{ article_boucherie.prixUnitaire }}</td>
+                <td> <img src="/images/uploads/{{ article_boucherie.path }}" class="img-small" alt="{{ article_boucherie.image }}"> </td>
+                <td>
+                    <a href="{{ path('article_boucherie_show', {'id': article_boucherie.id}) }}">show</a>
+                    <a href="{{ path('article_boucherie_edit', {'id': article_boucherie.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_boucherie_new') }}">Create new</a>
+{% endblock %}

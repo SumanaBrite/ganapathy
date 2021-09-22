@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fast Food de JOUR
+{% endblock %}
+
+{% block body %}
+	<div id="fastfood" class="">
+		<div class="container">
+			<div class="row row-cols-1 row-cols-md-4 g-4">
+			   <div class="col-9">
+					<div class="col-sm-12 col-md-4">
+						{% include "/fastfood/fastFoodMenu.html.twig" %}
+					</div>
+					{# <div class="col-sm-12 col-md-4">
+							{% include "/fastfood/fastFoodArticle.html.twig" %}
+					</div> #}
+				</div>
+			<div class="col-3 card-aside">
+           <h4>Panier</h4>
+           <hr> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+           <hr>
+           <div style="margin-bottom: 0;" >
+           <h4>Total</h4>
+           <hr> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+           <hr>
+           <a href="#"   class="btn-cart btn btn-warning btn-lg text-center">Consulter le Panier</a>
+           </div>
+
+
+          
+
+          </div> 
+			</div>
+		</div>
+	</div>
+
+	<br>
+	<br>
+{% endblock %}

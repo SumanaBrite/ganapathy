@@ -1,0 +1,106 @@
+    {# {%  set guichets_tmp = guichets %} #}
+    {# <pre>
+     	{{ dump( jour1 ) }}
+         {{ dump( horaires ) }}
+		{{ dump( calendriers ) }}
+
+	</pre> #}
+    
+    <table class="table table table-bordered table-striped">
+		<thead>
+			<tr>
+                <th>Horaires</th>
+                {% set jour = jour1  %}
+
+                {% for jour in jours %}
+					<th> {{  jour | date("l m/d/Y") }}</th>
+                {% endfor %}
+			</tr>
+		</thead>
+
+
+		<tbody>
+     {% if  null == app.user  %}
+         <p> Veuillez-vous vous connecter pour réserver un créneau </p>
+     {% endif %}
+     
+
+                {% for horaire in horaires %}
+                   <tr>
+                   <td>{{  horaire.nom }}</td>
+					
+                   
+                    {% for jour in jours %}
+                        {% set nbCreneau = 0 %}
+                         <td>
+                            <div>
+                                <form method="post" action="{{ path('fiche_rdv') }}">
+                                
+                                {% for calendrier in calendriers  %}
+                                    {% if ( horaire.nom == calendrier.horaire and
+                                         calendrier.jour == jour ) %}
+                                        {% set nbCreneau = nbCreneau + 1 %}
+                                
+                                    {% endif %}
+                        
+                         
+                                {% endfor %} 
+
+                                {% if nbCreneau > 0  %}
+
+                                    <label for="creneau">Créneaux</label>
+                                    <select id="creneau" name="creneau">
+                                    {% for calendrier in calendriers  %}
+                                        {% if ( horaire.nom == calendrier.horaire and
+                                            calendrier.jour == jour ) %}
+                                            {% set nbCreneau = nbCreneau + 1 %}
+                    {# on passe les informations comme une seul chaîne de caractères qu'on retransformera
+                    en tableau dans le controller avec des explode #}
+                                            {# <option value="horaire-->{{ calendrier.horaire }}~jour-->{{ calendrier.jour|date('Y-m-d') }}~creneau-->{{ calendrier.creneau }}">{{ calendrier.creneau }}</option> #}
+                                            
+                                            <option value=
+    "horaire-->{{ calendrier.horaire }}~horaireId-->{{ calendrier.horaireId }}~jour-->{{ calendrier.jour|date('Y-m-d') }}~creneau-->{{ calendrier.creneau }}~creneauId-->{{ calendrier.creneauId }}">{{ horaire.nom }} de {{ calendrier.creneau }}</option>
+                                            
+                                        {% endif %}
+                            
+                            
+                                    {% endfor %} 
+                                    </select>
+                                    {# <input type="hidden" value="truc" name="essai"> #}
+                                    {% if is_granted("IS_AUTHENTICATED_FULLY") %}  
+                            
+                                    {% if nbCreneau > 0  %}
+                            
+                                    {# {% set jourSelected = calendrier.jour|date("m/d/Y") %} #}
+                                        {# <button class="btn btn-secondary" type="submit">Réserver</button> #}
+                                        <input class="btn btn-secondary" type="submit" value="Réserver">
+
+                                    {% endif %}  
+                            
+                                {% endif %}</form>
+                                {% else %}
+                                     <div> Pas de créneau disponible</div>
+                                {% endif %}
+                                
+                            </div>
+                            <div>
+                                
+                            </div>
+                        </td>
+                         
+
+                        
+					{# <td>reservé</td>
+					<td><a href="{{ path("planning_jour") }}">disponible</a></td>
+					<td>disponible</td> #}
+                    {% endfor   %}
+                     {# calendrier
+                    } #}
+                
+				    </tr>
+                {% endfor %}
+        
+                
+		</tbody>
+
+	</table>

@@ -1,0 +1,51 @@
+{% for categorieFastFood in categoriesFastFood %}
+	{% if categorieFastFood.nom != "Menu" %}
+		{%  set nbr = 0 %}
+		{%  set flg = 0 %}
+		{% for articleFastFood in articlesFastFood %}
+			{% if articleFastFood.categorie.id == categorieFastFood.id %}
+				{% if nbr == 0 %}
+					{%  set flg = 1 %}
+					<h4 class=" text-center text-uppercase ">
+						{{ categorieFastFood.nom }}</h4>
+				{% endif  %}
+				{# {% if nbr < 3 %} #}
+	<div class="card_fastfood p-2 h-70 ">
+					<img src="/images/uploads/{{ articleFastFood.path }}" class="cover-image card-img-top " alt="{{ articleFastFood.image }}">
+					<div class="card-body">
+						<h6 class="card-title text-center">{{ articleFastFood.nom }}</h6>
+						
+					</div>
+
+		<div class="card-footer">
+            <div class="row">
+                                    
+				<div class="col-6 d-flex align-items-center price">
+                    
+					{% if articleFastFood.promotion %}
+						<div class="price-discount">
+							<span>promo</span>
+						</div>	
+                </div>   
+                <div class="col-6 d-flex align-items-center price">
+                        <label><del>{{ articleFastFood.prixUnitaire }}</del></label>
+                        <label class="color-orange ml-5">{{   articleFastFood.prixUnitaire -  articleFastFood.prixPromotion}} &#x20AC;</label>
+						{% endif %}
+						<a href=" {{ path('articleFastFood_detail', {id: articleFastFood.id } ) }}" class="card-link btn btn-warning btn-lg">Détail</a>
+               
+			   
+			    </div>
+ <a href="#" class="btn-cart btn btn-danger btn-lg text-center">Ajouter au Panier</a>
+
+
+            </div>
+        </div>
+    </div>
+					{%  set nbr = nbr + 1 %}
+				{# {% endif %} #}
+			{% endif %}
+
+		{% endfor %}
+		{% if flg == 1 %}{% endif  %}
+	{% endif %}
+{% endfor %}

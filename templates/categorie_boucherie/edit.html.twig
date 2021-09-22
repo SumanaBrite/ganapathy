@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit CategorieBoucherie{% endblock %}
+
+{% block body %}
+    <h1>Edit CategorieBoucherie</h1>
+
+    {{ include('categorie_boucherie/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('categorie_boucherie_index') }}">back to list</a>
+
+    {{ include('categorie_boucherie/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CategorieBoucherie{% endblock %}
+
+{% block body %}
+    <h1>CategorieBoucherie</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ categorie_boucherie.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ categorie_boucherie.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('categorie_boucherie_index') }}">back to list</a>
+
+    <a href="{{ path('categorie_boucherie_edit', {'id': categorie_boucherie.id}) }}">edit</a>
+
+    {{ include('categorie_boucherie/_delete_form.html.twig') }}
+{% endblock %}

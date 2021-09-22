@@ -1,0 +1,95 @@
+{% extends "base.html.twig" %}
+{% block title %}
+{{ categorie }}
+{% endblock %}
+{% block body %}
+
+<div class= "volaille">
+{# <div class="dark"> #}
+  <div class ="container">
+
+    <h1 class="p-4">Bienvenue chez Ganapathy</h1>
+
+    <h3> Nos Produits << {{ categorie }}  >> </h3><br><br>
+
+
+      {# <div class="row row-cols-1 row-cols-md-3 g-4"> #}
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        
+        {# <div class="col-1"></div>    #}
+          
+          <div class="col-9">
+
+              {% for article in articles_boucheries %}
+
+                <div class="col-3 "> 
+                    <div class="card h-100  p-4" >
+                      <img src="/images/uploads/{{ article.path }}" class="card-img-top h-50" alt="{{article.nom}}">
+                      <div class="card-body">
+                        <h2 class="card-title">{{article.nom}}</h2>
+                        <p>{{article.description}}</p>  
+
+                        {# <a href="#" class="card-link btn btn-success btn-lg">Détail</a> #}
+
+                        <div >
+                        <h6 >Sélectionnez Produit</h6>
+                        <a href="{{ path('product_boucherie', {'id': article.id , 'categorie': categorie} ) }}?addCart=true" 
+                        class="btn-cart btn btn-warning btn-lg text-center">Ajouter au Panier</a>
+            
+                              
+                        </div >
+                      </div>
+                    </div>
+
+                </div> 
+              {% endfor %}
+        </div> 
+
+        
+          
+          {# <div class="col-3 card-aside">
+           <h4>Panier</h4>
+           <hr> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+           <hr>
+           <div style="margin-bottom: 0;" >
+           <h4>Total</h4>
+           <hr> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+           <hr>
+           <a href="#"   class="btn-cart btn btn-warning btn-lg text-center">Consulter le Panier</a>
+           </div>
+          </div>  #}
+        </div>
+      </div>
+  </div>
+
+</div>
+<div class ="container">
+<div class="row row-cols-12 row-cols-md-9">
+{% for article in articles_boucheries %}
+
+  <div class="card col-12 col-md-4 h-100  p-4" >
+                      <img src="/images/uploads/{{ article.path }}" class="card-img-top h-50" alt="{{article.nom}}">
+                      <div class="card-body">
+                        <h2 class="card-title">{{article.nom}}</h2>
+                        <p>{{article.description}}</p>  
+
+                        {# <a href="#" class="card-link btn btn-success btn-lg">Détail</a> #}
+
+                        <div >
+                        <h6 >Sélectionnez Produit</h6>
+                        <a href="{{ path('product_boucherie', {'id': article.id , 'categorie': categorie} ) }}?addCart=true" 
+                        class="btn-cart btn btn-warning btn-lg text-center">Ajouter au Panier</a>
+            
+                              
+                        </div >
+                      </div>
+                    </div>
+                    {% endfor %}
+  </div>
+  
+  </div>
+</div>
+<br>
+<br>
+
+{% endblock %}

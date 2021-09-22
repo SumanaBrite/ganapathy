@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ArticleBoucherie{% endblock %}
+
+{% block body %}
+    <h1>Create new ArticleBoucherie</h1>
+
+    {{ include('article_boucherie/_form.html.twig') }}
+
+    <a href="{{ path('article_boucherie_index') }}">back to list</a>
+{% endblock %}

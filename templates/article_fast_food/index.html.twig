@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ArticleFastFood index{% endblock %}
+
+{% block body %}
+    <h1>ArticleFastFood index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>PrixUnitaire</th>
+                {# <th>Path</th> #}
+                <th>Image</th>
+                <th>Promotion</th>
+                <th>PrixPromotion</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article_fast_food in article_fast_foods %}
+            <tr>
+                <td>{{ article_fast_food.id }}</td>
+                <td>{{ article_fast_food.nom }}</td>
+                <td>{{ article_fast_food.description }}</td>
+                <td>{{ article_fast_food.prixUnitaire }}</td>
+                <td><img src="/images/uploads/{{ article_fast_food.path }}" class="img-small" alt="{{ article_fast_food.image }}"></td>
+                {# <td>{{ article_fast_food.image }}</td> #}
+                <td>{{ article_fast_food.promotion ? 'Yes' : 'No' }}</td>
+                <td>{{ article_fast_food.prixPromotion }}</td>
+                <td>
+                    <a href="{{ path('article_fast_food_show', {'id': article_fast_food.id}) }}">show</a>
+                    <a href="{{ path('article_fast_food_edit', {'id': article_fast_food.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Aucun Article trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_fast_food_new') }}">Créer nouveau Article</a>
+{% endblock %}

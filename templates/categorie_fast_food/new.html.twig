@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New CategorieFastFood{% endblock %}
+
+{% block body %}
+    <h1>Create new CategorieFastFood</h1>
+
+    {{ include('categorie_fast_food/_form.html.twig') }}
+
+    <a href="{{ path('categorie_fast_food_index') }}">back to list</a>
+{% endblock %}

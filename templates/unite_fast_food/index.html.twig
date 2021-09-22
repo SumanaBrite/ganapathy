@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UniteFastFood index{% endblock %}
+
+{% block body %}
+    <h1>UniteFastFood index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for unite_fast_food in unite_fast_foods %}
+            <tr>
+                <td>{{ unite_fast_food.id }}</td>
+                <td>{{ unite_fast_food.nom }}</td>
+                <td>
+                    <a href="{{ path('unite_fast_food_show', {'id': unite_fast_food.id}) }}">show</a>
+                    <a href="{{ path('unite_fast_food_edit', {'id': unite_fast_food.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('unite_fast_food_new') }}">Create new</a>
+{% endblock %}

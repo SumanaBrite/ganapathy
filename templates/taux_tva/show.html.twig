@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TauxTva{% endblock %}
+
+{% block body %}
+    <h1>TauxTva</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ taux_tva.id }}</td>
+            </tr>
+            <tr>
+                <th>Taux</th>
+                <td>{{ taux_tva.taux }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ taux_tva.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('taux_tva_index') }}">back to list</a>
+
+    <a href="{{ path('taux_tva_edit', {'id': taux_tva.id}) }}">edit</a>
+
+    {{ include('taux_tva/_delete_form.html.twig') }}
+{% endblock %}

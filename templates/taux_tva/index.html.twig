@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TauxTva index{% endblock %}
+
+{% block body %}
+    <h1>TauxTva index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Taux</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for taux_tva in taux_tvas %}
+            <tr>
+                <td>{{ taux_tva.id }}</td>
+                <td>{{ taux_tva.taux }}</td>
+                <td>{{ taux_tva.description }}</td>
+                <td>
+                    <a href="{{ path('taux_tva_show', {'id': taux_tva.id}) }}">show</a>
+                    <a href="{{ path('taux_tva_edit', {'id': taux_tva.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('taux_tva_new') }}">Create new</a>
+{% endblock %}

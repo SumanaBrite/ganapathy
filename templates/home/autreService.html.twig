@@ -1,0 +1,31 @@
+<div class="boucherieSlider">
+	<br>
+	<h1>Autre Service de Ganapathy</h1>
+	<p class="heading-underline"></p>
+	<div class="dark slider slider-nav">
+		{% for article in articlesAutreService %}
+
+			<div class="col sm-6 md-4 lg-2">
+				<div class="dark card-slicker shadow">
+
+
+					<div class="card-body">
+						<h3 class="card-title text-center mb-0">{{ article.nom }}
+						</h3>
+
+					</div>
+					<img src="/images/uploads/{{ article.path }}" class="cover-image-bottom slicker-card" alt="{{ article.image }}">
+					<h5 class="card-title text-center mb-0">{{ article.prixUnitaire / 100 }} <i class="fas fa-euro-sign"></i></h5>
+					</div>
+					<div>
+						<button href="" class="card-link btn-cart btn-lg ">
+							Ajouter au panier
+						</button>
+					</div>
+				</div>
+
+
+			{% endfor %}
+		</div>
+
+	</div>

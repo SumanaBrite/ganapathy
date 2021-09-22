@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit UniteFastFood{% endblock %}
+
+{% block body %}
+    <h1>Edit UniteFastFood</h1>
+
+    {{ include('unite_fast_food/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('unite_fast_food_index') }}">back to list</a>
+
+    {{ include('unite_fast_food/_delete_form.html.twig') }}
+{% endblock %}
