@@ -21,8 +21,6 @@
                 {% for horaire in horaires %}
                    <tr>
                    <td>{{  horaire.nom }}</td>
-					
-                   
                     {% for jour in jours %}
                          {% set jourSelected = jour|date("m.d.Y") %} 
                         {% set nbCreneau = 0 %}

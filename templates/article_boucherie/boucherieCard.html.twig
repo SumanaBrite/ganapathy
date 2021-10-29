@@ -10,7 +10,7 @@
 
     <h1 class="p-4">Bienvenue chez Ganapathy</h1>
 
-    <h3> Nos Produits << {{ categorie }}  >> </h3><br><br>
+    <h3> Nos Produits : {{ categorie }}   </h3><br><br>
 
 
       {# <div class="row row-cols-1 row-cols-md-3 g-4"> #}
@@ -18,11 +18,11 @@
         
         {# <div class="col-1"></div>    #}
           
-          <div class="col-9">
+          {# <div class="col-9">
 
               {% for article in articles_boucheries %}
 
-                <div class="col-3 "> 
+                <div class="col"> 
                     <div class="card h-100  p-4" >
                       <img src="/images/uploads/{{ article.path }}" class="card-img-top h-50" alt="{{article.nom}}">
                       <div class="card-body">
@@ -31,7 +31,7 @@
 
                         {# <a href="#" class="card-link btn btn-success btn-lg">Détail</a> #}
 
-                        <div >
+                        {# <div >
                         <h6 >Sélectionnez Produit</h6>
                         <a href="{{ path('product_boucherie', {'id': article.id , 'categorie': categorie} ) }}?addCart=true" 
                         class="btn-cart btn btn-warning btn-lg text-center">Ajouter au Panier</a>
@@ -43,7 +43,7 @@
 
                 </div> 
               {% endfor %}
-        </div> 
+        </div>  #} 
 
         
           

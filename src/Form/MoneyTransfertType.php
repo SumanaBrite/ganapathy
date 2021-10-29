@@ -19,7 +19,8 @@ class MoneyTransfertType extends AbstractType
             // ->add('flagPath')
             ->add('path', FileType::class, [
                 'mapped' => false,
-                'required' => true,
+                // 'required' => true,
+                'required' => false,//permet de rechoisit pas l'image en edit mode
                 'multiple' => false,
                 'label' => "uploader votre image",
                 'attr' => [
