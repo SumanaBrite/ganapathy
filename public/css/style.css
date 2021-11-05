@@ -353,10 +353,10 @@ input.btn:hover {
 			.navbar .nav-item .dropdown-menu{ margin-top:0; }
 			
 		}	
-		@media all{
+		/* @media all{
 			.card .btn-cart{ display:none;}
 			.card:hover .btn-cart{ display:block;}
-		}
+		} */
 		/* ============ desktop view .end// ============ */
 		.planning{
 			/* background-image: url('/image/dd.png'); */

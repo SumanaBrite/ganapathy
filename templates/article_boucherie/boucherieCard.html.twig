@@ -4,7 +4,7 @@
 {% endblock %}
 {% block body %}
 
-<div class= "volaille">
+<div class= "">
 {# <div class="dark"> #}
   <div class ="container">
 
@@ -77,8 +77,11 @@
 
                         <div >
                         <h6 >Sélectionnez Produit</h6>
-                        <a href="{{ path('product_boucherie', {'id': article.id , 'categorie': categorie} ) }}?addCart=true" 
-                        class="btn-cart btn btn-warning btn-lg text-center">Ajouter au Panier</a>
+                        {# <a href="{{ path('product_boucherie', {'id': article.id , 'categorie': categorie} ) }}?addCart=true" 
+                        class="btn-cart btn btn-warning btn-lg text-center"> <i class = "fas fa-shopping-cart mr-1"></i> Ajouter au Panier</a> #}
+
+                        <a href="{{ path('panier_add', {'id': article.id} ) }}" 
+                        class="btn-cart btn btn-warning btn-lg text-center"> <i class = "fas fa-shopping-cart mr-1"></i> Ajouter au Panier</a> 
             
                               
                         </div >
